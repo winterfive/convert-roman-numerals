@@ -1,14 +1,15 @@
 function convertToRoman(num) {
 
-    var remainder = (num, amount) => num % amount;
+    var remainder = 0;
     var amounts = [1000, 500, 100, 50, 10, 5, 1];
     var letters = ["M", "D", "C", "L", "X", "V", "I"];
-    var answer;
+    var answer = "";
 
-    var number = num.toString();
+    var length = num.toString().length;
 
-    for (var i = 0; i < number.length; i++) {
-        var temp;
+    for (var i = 0; i < length; i++) {
+        var temp = 0;
+        num = remainder;
 
         //divide num by values in amounts array
         temp = Math.floor(num/amounts[i]);
@@ -21,7 +22,7 @@ function convertToRoman(num) {
         }        
 
         //get remainder for next iteration
-        remainder(num, amounts[i]);
+        remainder = num % amounts[i];
     }
 
     console.log(answer);
