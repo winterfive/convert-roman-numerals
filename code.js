@@ -1,9 +1,10 @@
 function convertToRoman(num) {
 
     var remainder = 0;
-    var amounts = [1000, 500, 100, 50, 10, 5, 1];
-    var letters = ["M", "D", "C", "L", "X", "V", "I"];
-    var answer = "";
+    const amounts = [1000, 500, 100, 50, 10, 5, 1];
+    const letters = ["M", "D", "C", "L", "X", "V", "I"];
+    var answer = [];
+    var result = "";
 
     var length = num.toString().length;
 
@@ -26,7 +27,9 @@ function convertToRoman(num) {
     }
 
     console.log(answer);
-    return answer;
+
+    result = answer.join("");
+    return result;
 }
 
 convertToRoman(36);
