@@ -9,19 +9,23 @@ function convertToRoman(num) {
 
     for (var i = 0; i < number.length; i++) {
         var temp;
-        //divide num by array roman amounts
+
+        //divide num by values in amounts array
         temp = Math.floor(num/amounts[i]);
-        //assign amount to temp var
+
         //use temp to add letters to answer
+        if (temp != 0) {
+            for (var j = 0; j < temp; j++ ) {
+                answer.push(letters[i]);
+            }
+        }        
+
+        //get remainder for next iteration
+        remainder(num, amounts[i]);
     }
-    
 
-
-
-
-
-
- return num;
+    console.log(answer);
+    return answer;
 }
 
 convertToRoman(36);
