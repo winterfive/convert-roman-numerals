@@ -1,11 +1,12 @@
 function convertToRoman(num) {
 
     var remainder = 0;
-    const amounts = [1000, 500, 100, 50, 10, 5, 1];
-    const letters = ["M", "D", "C", "L", "X", "V", "I"];
+    const amounts = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    const letters = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
     var answer = [];
+    const arrSize = amounts.length;
 
-    for (var i = 0; i < 7; i++) {
+    for (var i = 0; i < arrSize; i++) {
         var temp;        
 
         //divide num by values in amounts[]
@@ -16,7 +17,7 @@ function convertToRoman(num) {
             for (var j = 0; j < temp; j++) {
                 answer.push(letters[i]);
             }
-        }        
+        }     
 
         //get remainder for next iteration
         remainder = num % amounts[i];
@@ -24,7 +25,8 @@ function convertToRoman(num) {
     }
 
     var result = answer.join("");
+    console.log(result);
     return result;
 }
 
-convertToRoman(36);
+convertToRoman(400);
