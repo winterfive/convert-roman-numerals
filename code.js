@@ -4,31 +4,26 @@ function convertToRoman(num) {
     const amounts = [1000, 500, 100, 50, 10, 5, 1];
     const letters = ["M", "D", "C", "L", "X", "V", "I"];
     var answer = [];
-    var result = "";
 
-    var length = num.toString().length;
+    for (var i = 0; i < 7; i++) {
+        var temp;        
 
-    for (var i = 0; i < length; i++) {
-        var temp = 0;
-        num = remainder;
-
-        //divide num by values in amounts array
+        //divide num by values in amounts[]
         temp = Math.floor(num/amounts[i]);
 
         //use temp to add letters to answer
-        if (temp != 0) {
-            for (var j = 0; j < temp; j++ ) {
+        if (temp >= 1) {
+            for (var j = 0; j < temp; j++) {
                 answer.push(letters[i]);
             }
         }        
 
         //get remainder for next iteration
         remainder = num % amounts[i];
+        num = remainder;
     }
 
-    console.log(answer);
-
-    result = answer.join("");
+    var result = answer.join("");
     return result;
 }
 
